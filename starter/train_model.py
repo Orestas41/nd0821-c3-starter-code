@@ -1,13 +1,18 @@
 # Script to train machine learning model.
 
 from sklearn.model_selection import train_test_split
+from ml.data import process_data
+from ml.model import train_model
 
 # Add the necessary imports for the starter code.
-
+import pandas as pd
+import joblib
+import os
 # Add code to load in the data.
-
+dirname = os.path.dirname(__file__)
+df = pd.read_csv('data/clean_census.csv')
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.20)
+train, test = train_test_split(df, test_size=0.20)
 
 cat_features = [
     "workclass",
@@ -24,5 +29,12 @@ X_train, y_train, encoder, lb = process_data(
 )
 
 # Proces the test data with the process_data function.
+X_test, y_test, encoder, lb = process_data(
+    test, categorical_features=cat_features, label='salary', training=False, 
+    encoder=encoder, lb=lb)
 
 # Train and save a model.
+trained_model = train_model(X_train, y_train)
+
+joblib.dump(trained_model, os.path.join(dirname, "../model/model.joblib"))
+joblib.dump(encoder, os.path.join(dirname, "../model/encoder.joblib"))
