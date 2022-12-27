@@ -12,7 +12,7 @@ import os
 # Add code to load in the data.
 dirname = os.path.dirname(__file__)
 df = pd.read_csv('data/clean_census.csv')
-# Optional enhancement, 
+# Optional enhancement,
 # use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(df, test_size=0.20)
 

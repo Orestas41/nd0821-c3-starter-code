@@ -71,4 +71,3 @@ def trainedModel(processedData):
 def client():
     client = TestClient(app)
     return client
-    

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-#from typing import Union
+# from typing import Union
 from pydantic import BaseModel
 
 import os
@@ -85,4 +85,3 @@ async def model_inference(data: TaggedItem):
 
     # turn prediction into JSON
     return {"prediction": res}
-    
