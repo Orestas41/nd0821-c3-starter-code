@@ -7,6 +7,7 @@ from starter.ml.model import train_model
 from fastapi.testclient import TestClient
 from main import app
 
+
 @pytest.fixture()
 def data():
     """10 sample data for test"""
@@ -65,7 +66,9 @@ def trainedModel(processedData):
     trained_model = train_model(X_train, y_train)
     return trained_model
 
+
 @pytest.fixture()
 def client():
     client = TestClient(app)
-    return 
+    return client
+    

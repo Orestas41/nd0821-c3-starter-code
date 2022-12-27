@@ -1,7 +1,7 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
-# Optional: implement hyperparameter tuning.
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -17,14 +17,15 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    model = DecisionTreeClassifier()
+    model = RandomForestClassifier()
     model.fit(X_train, y_train)
     return model
 
 
 def compute_model_metrics(y, preds):
     """
-    Validates the trained machine learning model using precision, recall, and F1.
+    Validates the trained machine learning model using precision, 
+    recall, and F1.
 
     Inputs
     ------

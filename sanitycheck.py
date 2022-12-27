@@ -1,4 +1,4 @@
-from os import path
+#from os import path
 
 import argparse
 import importlib
@@ -10,12 +10,17 @@ FAIL_COLOR = '\033[91m'
 OK_COLOR = '\033[92m'
 WARN_COLOR = '\033[93m'
 
+
 def run_sanity_check(test_dir):
 
-    #assert path.isdir(test_dir), FAIL_COLOR+f"No direcotry named {test_dir} found in {os.getcwd()}"
-    print('This script will perform a sanity test to ensure your code meets the criteria in the rubric.\n')
-    print('Please enter the path to the file that contains your test cases for the GET() and POST() methods')
-    print('The path should be something like abc/def/test_xyz.py')
+    # assert path.isdir(test_dir), 
+    # FAIL_COLOR+f"No direcotry named {test_dir} found in {os.getcwd()}"
+    print(
+        'This script will perform a sanity test to ensure your code meets the criteria in the rubric.\n')
+    print(
+        'Please enter the path to the file that contains your test cases for the GET() and POST() methods')
+    print(
+        'The path should be something like abc/def/test_xyz.py')
     filepath = input('> ')
 
     assert path.exists(filepath), f"File {filepath} does not exist."
@@ -24,25 +29,28 @@ def run_sanity_check(test_dir):
     module_name = path.splitext(path.basename(filepath))[0]
     module = importlib.import_module(module_name)
 
+    test_function_names = list(filter(lambda x: inspect.isfunction(getattr(module, x))
+     and not x.startswith('__'), dir(module)))
 
-    test_function_names = list(filter(lambda x: inspect.isfunction(getattr(module,x)) and not x.startswith('__'), dir(module)))
-
-    test_functions_for_get = list(filter(lambda x: inspect.getsource(getattr(module,x)).find('.get(') != -1 , test_function_names))
-    test_functions_for_post = list(filter(lambda x: inspect.getsource(getattr(module,x)).find('.post(') != -1, test_function_names))
-    
+    test_functions_for_get = list(filter(lambda x: inspect.getsource(getattr(module, x))
+    .find('.get(') != -1, test_function_names))
+    test_functions_for_post = list(filter(lambda x: inspect.getsource(getattr(module, x))
+    .find('.post(') != -1, test_function_names))
 
     print("\n============= Sanity Check Report ===========")
     SANITY_TEST_PASSING = True
     WARNING_COUNT = 1
 
-    ## GET()
+    # GET()
     TEST_FOR_GET_METHOD_RESPONSE_CODE = False
     TEST_FOR_GET_METHOD_RESPONSE_BODY = False
     if not test_functions_for_get:
         print(FAIL_COLOR+f"[{WARNING_COUNT}]")
         WARNING_COUNT += 1
-        print(FAIL_COLOR+"No test cases were detected for the GET() method.")
-        print(FAIL_COLOR+"\nPlease make sure you have a test case for the GET method.\
+        print(
+            FAIL_COLOR+"No test cases were detected for the GET() method.")
+        print(
+            FAIL_COLOR+"\nPlease make sure you have a test case for the GET method.\
             This MUST test both the status code as well as the contents of the request object.\n")
         SANITY_TEST_PASSING = False
 

@@ -1,6 +1,5 @@
-# Put the code for your API here.
 from fastapi import FastAPI
-from typing import Union 
+#from typing import Union
 from pydantic import BaseModel
 
 import os
@@ -9,6 +8,7 @@ import pandas as pd
 import numpy as np
 
 app = FastAPI()
+
 
 class TaggedItem(BaseModel):
     age: int
@@ -46,9 +46,11 @@ class TaggedItem(BaseModel):
             }
         }
 
+
 @app.get('/')
 async def say_hello():
     return {'greeting': 'Hello World!'}
+
 
 @app.post("/predict")
 async def model_inference(data: TaggedItem):
@@ -83,3 +85,4 @@ async def model_inference(data: TaggedItem):
 
     # turn prediction into JSON
     return {"prediction": res}
+    
