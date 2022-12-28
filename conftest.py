@@ -10,8 +10,6 @@ from main import app
 
 @pytest.fixture()
 def data():
-    """10 sample data for test"""
-
     dirname = os.path.dirname(__file__)
     df = pd.read_csv(os.path.join(dirname, "data/clean_census.csv"))[:10]
     return df
@@ -19,7 +17,6 @@ def data():
 
 @pytest.fixture()
 def processedData(data):
-    """processed data for train/test"""
 
     train, test = train_test_split(data, test_size=0.20)
     cat_features = [
@@ -59,8 +56,6 @@ def processedData(data):
 
 @pytest.fixture()
 def trainedModel(processedData):
-    """simple model for testing"""
-
     X_train = processedData["X_train"]
     y_train = processedData["y_train"]
     trained_model = train_model(X_train, y_train)

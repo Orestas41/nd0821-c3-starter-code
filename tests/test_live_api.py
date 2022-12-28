@@ -21,5 +21,5 @@ payload = {
 
 response = requests.post(api_endpoint + "predict", json=payload)
 
-print(f"Input:{payload}")
+print(f"Subject:{payload}")
 print(f"Prediction:{response.content}")

@@ -3,6 +3,8 @@
 <h3 align='center'>Orestas Dulinskas</h3>
 <h4 align='center'>November 2022</h4>
 
+Github: https://github.com/Orestas41/nd0821-c3-starter-code
+
 Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
 
 # Environment Set up

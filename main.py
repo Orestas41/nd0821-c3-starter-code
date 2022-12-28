@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-# from typing import Union
 from pydantic import BaseModel
 
 import os
@@ -29,17 +28,17 @@ class TaggedItem(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "age": 39,
+                "age": 25,
                 "workclass": "State-gov",
-                "fnlgt": 77516,
-                "education": "Bachelors",
+                "fnlgt": 68472,
+                "education": "Masters",
                 "education_num": 13,
                 "marital_status": "Never-married",
                 "occupation": "Adm-clerical",
                 "relationship": "Not-in-family",
                 "race": "White",
-                "sex": "Male",
-                "capital_gain": 2174,
+                "sex": "Female",
+                "capital_gain": 1786,
                 "capital_loss": 0,
                 "hours_per_week": 40,
                 "native_country": "United-States",
@@ -79,11 +78,9 @@ async def model_inference(data: TaggedItem):
     X_categorical = encoder.transform(X_categorical)
     X = np.concatenate([X_continuous, X_categorical], axis=1)
 
-    # inference
     pred = model.predict(X)
     res = "<=50K" if pred[0] == 0 else ">50K"
 
-    # turn prediction into JSON
     return {"prediction": res}
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
