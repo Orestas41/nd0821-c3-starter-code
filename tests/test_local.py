@@ -32,9 +32,9 @@ def test_local_api_predict_less(client):
 def test_local_api_predict_more(client):
 
     sample = {
-        'age': 28,
+        'age': 48,
         'workclass': 'Self-emp-not-inc',
-        'fnlgt': 44467,
+        'fnlgt': 11144467,
         'education': 'Masters',
         'education_num': 13,
         'marital_status': 'Never-married',
@@ -42,10 +42,10 @@ def test_local_api_predict_more(client):
         'relationship': 'Not-in-family',
         'race': 'White',
         'sex': 'Male',
-        'capital_gain': 0,
+        'capital_gain': 30000,
         'capital_loss': 0,
         'hours_per_week': 80,
-        'native_country': 'United-States',
+        'native_country': 'United-Kingdom',
     }
 
     response = client.post('/predict', json=sample)
