@@ -2,7 +2,7 @@
 
 from sklearn.model_selection import train_test_split
 from ml.data import process_data
-from ml.model import train_model
+from ml.model import train_model, inference, compute_model_metrics
 from data_slice import data_slicing_cat
 
 # Add the necessary imports for the starter code.
@@ -38,6 +38,11 @@ X_test, y_test, encoder, lb = process_data(
 
 # Train and save a model.
 trained_model = train_model(X_train, y_train)
+
+# Determine the classification metrics
+preds = inference(trained_model, X_test)
+precision, recall, fbeta = compute_model_metrics(y_test, preds)
+print(f'Precision:{precision}, Recall:{recall}, Fbeta:{fbeta}')
 
 joblib.dump(trained_model, os.path.join(dirname, "../model/model.joblib"))
 joblib.dump(encoder, os.path.join(dirname, "../model/encoder.joblib"))

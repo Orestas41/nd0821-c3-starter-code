@@ -1,33 +1,33 @@
 education
-	 Some-college
-		 prec:1.0 rec:1.0 fbeta:1.0
 	 Bachelors
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
 	 Assoc-voc
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 Masters
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 11th
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 Some-college
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
 	 HS-grad
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 7th-8th
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
 	 Prof-school
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 10th
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 Assoc-acdm
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
 	 12th
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 5th-6th
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 1st-4th
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 7th-8th
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 Assoc-acdm
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
 	 9th
-		 prec:1.0 rec:1.0 fbeta:1.0
-	 Doctorate
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 10th
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 Masters
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 11th
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
 	 Preschool
-		 prec:1.0 rec:1.0 fbeta:1.0
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 Doctorate
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 5th-6th
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
+	 1st-4th
+		 prec:1.0 rec:0.5 fbeta:0.6666666666666666
